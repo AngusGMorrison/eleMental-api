@@ -1,8 +1,9 @@
 var express = require("express");
 var router = express.Router();
 
-router.get("/hiscores", function(req, res, next) {
-  
-});
+const hiscores = require("../controllers/hiscores");
+
+router.get("/hiscores", hiscores.index);
+
 
 module.exports = router;
