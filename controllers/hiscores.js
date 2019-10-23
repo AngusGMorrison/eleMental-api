@@ -8,7 +8,7 @@ exports.index = function(req, res, next) {
 exports.create = function(req, res, next) {
   return models.Score.create({
     initials: req.body.initials,
-    score: req.body.score
+    score: Number(req.body.score)
   }).then(score => res.json(score))
 }
 
