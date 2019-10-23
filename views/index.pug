@@ -3,3 +3,11 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  form(id="score-form")
+    label(for="initials") Initials
+    input(type="text", id="initials" name="initials")
+    label(for="score") Score
+    input(type="number", id="score" name="score")
+    input(type="submit" value="Submit")
+
+  script(src="/javascripts/index.js")
