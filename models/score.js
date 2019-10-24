@@ -1,5 +1,5 @@
 "use strict";
-module.exports = (sequelize, DataTypes) => {
+const score = (sequelize, DataTypes) => {
   const Score = sequelize.define("Score", {
     id: {
       type: DataTypes.UUID,
@@ -20,5 +20,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   });
 
+  Score.findTop10 = () => Score.findAll({ limit: 10, order: [["score", "DESC"]] });
+
   return Score;
-}
+};
+
+module.exports = score;

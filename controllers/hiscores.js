@@ -1,25 +1,19 @@
 const models = require("../models");
 
 index = function(req, res, next) {
-  return models.Score.findAll({ limit: 10, order: [["score", "DESC"]] })
+  return models.Score.findTop10()
     .then(scores => res.json(scores));
 }
 
 create = function(req, res, next) {
   return models.Score.create({
     initials: req.body.initials,
-    score: Number(req.body.score)
-  }).then(() => {
-    return models.Score.findAll({ limit: 10, order: [["score", "DESC"]] })
-  }).then(data => {
-    res.json(data);
-  });
-}
-
-test = function(req, res, next) {
-  res.render("index");
+    score: req.body.score
+  })
+  .then(() => models.Score.findTop10())
+  .then(scores => res.json(scores));
 }
 
 module.exports = {
-  index, create, test
+  index, create
 }
