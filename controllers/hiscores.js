@@ -16,10 +16,6 @@ create = function(req, res, next) {
   });
 }
 
-test = function(req, res, next) {
-  res.render("index");
-}
-
 module.exports = {
-  index, create, test
+  index, create
 }
