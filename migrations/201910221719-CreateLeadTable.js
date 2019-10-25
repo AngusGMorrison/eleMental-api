@@ -8,14 +8,6 @@ module.exports = {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4
       },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
       initials: {
         allowNull: false,
         type: Sequelize.STRING
@@ -23,7 +15,9 @@ module.exports = {
       score: {
         allowNull: false,
         type: Sequelize.INTEGER
-      }
+      },
+      createdAt: Sequelize.DATE,
+      updatedAt: Sequelize.DATE
     });
   },
   down: (queryInterface, Sequelize) => {
